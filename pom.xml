@@ -18,9 +18,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-        <asciidoctor.maven.plugin.version>1.5.2.1</asciidoctor.maven.plugin.version>
+		<asciidoctor.maven.plugin.version>1.5.2.1</asciidoctor.maven.plugin.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +49,10 @@
 			<artifactId>equalsverifier</artifactId>
 			<version>1.7.3</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
 
 	</dependencies>
