@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import nl.programit.people.domain.Person;
 
-@Path("/cdr")
+@Path("/people")
 @Component
 public class PersonService {
 
