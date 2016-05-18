@@ -19,7 +19,8 @@ public class PersonService {
 	public Response list() {
 
 		Person p = new Person();
-		p.setFirstName("Tiemen");
+		p.setFirstName("Piet");
+		p.setLastName("Jansen");
 
 		return Response.accepted(p).build();
 
