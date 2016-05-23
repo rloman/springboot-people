@@ -19,5 +19,11 @@ public class PersonService {
 		this.personRepository.save(person);		
 
 	}
+	
+	public Iterable<Person> findAll() {
+		Iterable<Person> result = this.personRepository.findAll();
+		
+		return result;
+	}
 
 }
