@@ -19,7 +19,7 @@ public class PersonService {
 	
 	public void save(Person person) {
 		
-		LOGGER.error("it rocks");
+		LOGGER.debug("it rocks");
 		
 		this.personRepository.save(person);		
 
