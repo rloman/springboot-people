@@ -21,7 +21,11 @@ public class PersonService {
 		
 		LOGGER.debug("it rocks");
 		
-		return this.personRepository.save(person);		
+		// aanroep van het door Mockito gemaakte contract (normaliter zet je dat natuurlijk hier
+//		niet in de code 
+		Person result = this.personRepository.save(person);	
+		
+		return result;
 
 	}
 	
