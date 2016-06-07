@@ -16,3 +16,4 @@ output.adoc
 *.fodp#
 .idea
 *.iml
+*.log
