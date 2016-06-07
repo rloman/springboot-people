@@ -17,11 +17,11 @@ public class PersonService {
 	@Autowired
 	private PersonRepository personRepository;
 	
-	public void save(Person person) {
+	public Person save(Person person) {
 		
 		LOGGER.debug("it rocks");
 		
-		this.personRepository.save(person);		
+		return this.personRepository.save(person);		
 
 	}
 	
