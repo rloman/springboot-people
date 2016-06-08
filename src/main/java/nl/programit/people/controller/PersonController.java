@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,9 +19,16 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public @ResponseBody String list() {
-		return this.personService.findAll().toString();
+	@RequestMapping("/list") // please listen :-) to the list - request
+	public String list(Model model) { // please inject a Model since that is the
+										// M in MVC which Spring Boot likes to
+										// see (what else can he see!!!!!!!)
+
+		Iterable<Person> people = this.personService.findAll();
+		model.addAttribute("people", people);
+
+		return "list"; // render something like list.html
+
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
@@ -36,7 +44,7 @@ public class PersonController {
 		Person person = new Person();
 		person.setFirstName(name);
 		person.setLastName(lastName);
-		
+
 		this.personService.save(person);
 
 	}

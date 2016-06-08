@@ -18,14 +18,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-        <asciidoctor.maven.plugin.version>1.5.2.1</asciidoctor.maven.plugin.version>
+		<asciidoctor.maven.plugin.version>1.5.2.1</asciidoctor.maven.plugin.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.2.6.RELEASE</version>
+		</dependency>
+
 
 		<!-- DB dependencies -->
 		<dependency>
@@ -47,6 +55,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.meanbean</groupId>
 			<artifactId>meanbean</artifactId>
 			<version>2.0.3</version>
@@ -61,13 +74,13 @@
 
 	</dependencies>
 
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-	</plugins>
+		</plugins>
 	</build>
 	<reporting>
 		<plugins>
