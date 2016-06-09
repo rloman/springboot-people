@@ -9,16 +9,28 @@
 <link rel="shortcut icon" th:href="@{images/recordworld.ico}" />
 <title>The people in our Exam app for now</title>
 </head>
-<body>
+<body th:inline="text">
 
 	<div class="database_table" align="center">
 		<h2 class="overviewTitle">People in exam app:</h2>
 
+		<option th:each="person : ${people}">
+			<p>
+				Voornaam: [[${person.firstName}]];
+				Achternaam: [[${person.lastName}]];
+				Adres: [[${person.address}]];
+				Telefoonnummer: [[${person.phone}]];
+				Email: [[${person.mail}]];
+			</p>
+			
+		</option>
 
-		<p th:each="person : ${people}" th:text="${person.firstName}+ ' ' + |${person.lastName}" />
+		<!-- <p th:each="person : ${people}" th:text="'First name: '+ ${person.firstName}+ '; Last name: ' + ${person.lastName}+ ' '+
+		+ '; Adres: ' +${person.address} + '; Phone: '+ ${person.phone}+ '; Email: ' + ${person.mail}" />
+		
 		<p th:each="person : ${people}" th:text="${person.address}" />
 		<p th:each="person : ${people}" th:text="${person.phone}" />
-		
+		-->
 	</div>
 
 </body>
