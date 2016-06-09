@@ -19,6 +19,16 @@ public class Person implements Serializable {
 
 	private String firstName;
 	private String lastName;
+	private String address;
+	private String phone;
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public long getId() {
 		return id;
@@ -46,7 +56,15 @@ public class Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", address = "+address +"]";
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	// feature

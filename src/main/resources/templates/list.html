@@ -16,6 +16,9 @@
 
 
 		<p th:each="person : ${people}" th:text="${person.firstName}" />
+		<p th:each="person : ${people}" th:text="${person.lastName}" />
+		<p th:each="person : ${people}" th:text="${person.address}" />
+		<p th:each="person : ${people}" th:text="${person.phone}" />
 		
 	</div>
 
