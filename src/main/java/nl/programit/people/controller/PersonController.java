@@ -39,13 +39,14 @@ public class PersonController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void handleFileUpload(@RequestParam("name") String name,
 			@RequestParam(required = false, value = "renderPresentationNotes") boolean renderPresentationNotes,
-			@RequestParam("lastName") String lastName,	@RequestParam("address") String address,@RequestParam("phone") String phone, HttpServletResponse response) {
+			@RequestParam("lastName") String lastName,	@RequestParam("address") String address,@RequestParam("phone") String phone,@RequestParam("email") String email, HttpServletResponse response) {
 
 		Person person = new Person();
 		person.setFirstName(name);
 		person.setLastName(lastName);
 		person.setAddress(address);
 		person.setPhone(phone);
+		person.setEmail(email);
 
 		this.personService.save(person);
 

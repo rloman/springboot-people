@@ -15,10 +15,8 @@
 		<h2 class="overviewTitle">People in exam app:</h2>
 
 
-		<p th:each="person : ${people}" th:text="${person.firstName}+ ' ' + ${person.lastName}+ ' ' +${person.address}+ ' ' +${person.phone}" />
-		<p th:each="person : ${people}" th:text="${person.address}" />
-		<p th:each="person : ${people}" th:text="${person.phone}" />
-		
+		<p th:each="person : ${people}" th:text="'Naam '+${person.firstName}+ ' ' + ${person.lastName}+ ' Adres ' +${person.address}+ ' Telefoon ' +${person.phone}+ ' Email:' +${person.email}" />
+
 	</div>
 
 </body>
