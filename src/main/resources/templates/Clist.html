@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css}" />
+
+<head>
+<link rel="shortcut icon" th:href="@{images/recordworld.ico}" />
+<title>The categories in our Exam app for now</title>
+</head>
+<body th:inline="text">
+
+	<div class="database_table" align="center">
+		<h2 class="overviewTitle">Category's in exam app:</h2>
+
+		<option th:each="category : ${categories}">
+			<p>
+				Naam van de categorie: [[${category.name}]];
+				Hoofdstuk waar het te vinden is: [[${category.chapter}]];
+			</p>
+			
+		</option>
+
+		<!-- <p th:each="person : ${people}" th:text="'First name: '+ ${person.firstName}+ '; Last name: ' + ${person.lastName}+ ' '+
+		+ '; Adres: ' +${person.address} + '; Phone: '+ ${person.phone}+ '; Email: ' + ${person.mail}" />
+		
+		<p th:each="person : ${people}" th:text="${person.address}" />
+		<p th:each="person : ${people}" th:text="${person.phone}" />
+		-->
+	</div>
+
+</body>
+</html>
