@@ -14,18 +14,23 @@
 
 	<div class="database_table" align="center">
 		<h2 class="overviewTitle">People in exam app:</h2>
-
-		<option th:each="person : ${people}">
-			<p>
-				Voornaam: [[${person.firstName}]];
-				Achternaam: [[${person.lastName}]];
-				Adres: [[${person.address}]];
-				Telefoonnummer: [[${person.phone}]];
-				Email: [[${person.mail}]];
-			</p>
+		<table>
+		<tr>
+		<th>Voornaam</th>
+		<th>Achternaam</th>
+		<th>Adres</th>
+		<th>Telefoonnummer</th>
+		<th>Email</th>
+		</tr>
+		<tr th:each="person : ${people}">
+				<td>[[${person.firstName}]]</td>
+				<td class="lastname"><pre>[[${person.lastName}]]</pre></td>
+				<td>[[${person.address}]]</td>
+				<td>[[${person.phone}]]</td>
+				<td>[[${person.mail}]]</td>
 			
-		</option>
-
+		</tr>
+		</table>
 
 	</div>
 	

@@ -1,7 +1,6 @@
 package nl.programit.people.controller;
 
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +19,7 @@ public class PersonController {
 
 	@Autowired
 	private PersonService personService;
+	@Autowired
 	private CategoryService categoryService;
 
 	@RequestMapping("/list") // please listen :-) to the list - request
@@ -29,6 +29,9 @@ public class PersonController {
 
 		Iterable<Person> people = this.personService.findAll();
 		model.addAttribute("people", people);
+		Iterable<Category> categories = this.categoryService.findAll();
+		model.addAttribute("categories", categories);
+		
 
 		return "list"; // render something like list.html
 
@@ -48,7 +51,12 @@ public class PersonController {
 
 		Person person = new Person();
 		person.setFirstName(name);
-		person.setLastName(lastName);
+		String newLastName= lastName.replaceAll(Character.toString((char)10),"\n\r");
+		newLastName= newLastName.replaceAll(Character.toString((char)9),"\t");
+	
+//		String toInsert=textAreaWidget.getText().replaceAll(Character.toString((char) 10), "\n\r"));
+
+		person.setLastName(newLastName);
 		person.setAddress(address);
 		person.setPhone(phone);
 		person.setMail(mail);
