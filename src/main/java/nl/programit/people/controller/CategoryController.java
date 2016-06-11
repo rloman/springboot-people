@@ -18,7 +18,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping("/Clist") // please listen :-) to the list - request
+	@RequestMapping("/Cinsert") // please listen :-) to the list - request
 	public String list(Model model) { // please inject a Model since that is the
 										// M in MVC which Spring Boot likes to
 										// see (what else can he see!!!!!!!)
@@ -32,11 +32,11 @@ public class CategoryController {
 
 	@RequestMapping(value = "/Cinsert", method = RequestMethod.GET)
 	public @ResponseBody String provideUploadInfo() {
-		return "You can upload some by posting to this url.";
+		return "Clist";
 	}
 
 	@RequestMapping(value = "/Cinsert", method = RequestMethod.POST)
-	public void handleFileUpload(@RequestParam("name") String name,
+	public String handleFileUpload(@RequestParam("name") String name,
 			@RequestParam(required = false, value = "renderPresentationNotes") boolean renderPresentationNotes,
 			@RequestParam("chapter") String chapter, HttpServletResponse response) {
 
@@ -46,6 +46,7 @@ public class CategoryController {
 
 
 		this.categoryService.save(category);
+		return "/Clist";
 
 	}
 }

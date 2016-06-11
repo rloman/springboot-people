@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import nl.programit.people.domain.Category;
 import nl.programit.people.domain.Person;
 
 @Service
@@ -16,6 +17,8 @@ public class PersonService {
 	
 	@Autowired
 	private PersonRepository personRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	public Person save(Person person) {
 		
@@ -34,5 +37,18 @@ public class PersonService {
 		
 		return result;
 	}
+public Category save2(Category category) {
+		
+		LOGGER.debug("it rocks");
+		
+		// aanroep van het door Mockito gemaakte contract (normaliter zet je dat natuurlijk hier
+//		niet in de code 
+		Category result = this.categoryRepository.save(category);	
+		
+		return result;
+
+	}
+	
+
 
 }

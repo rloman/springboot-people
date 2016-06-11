@@ -2,6 +2,7 @@ package nl.programit.people.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Person implements Serializable {
 	private long id;
 
 	private String firstName;
+	@Column(name = "last_name", columnDefinition = "LONGVARBINARY")
 	private String lastName;
 	private String address;
 	private String phone;
@@ -51,8 +53,8 @@ public class Person implements Serializable {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String name) {
+		this.firstName = name;
 	}
 
 	public String getLastName() {

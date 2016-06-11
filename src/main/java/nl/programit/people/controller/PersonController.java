@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import nl.programit.people.domain.Category;
 import nl.programit.people.domain.Person;
+import nl.programit.people.persistence.CategoryService;
 import nl.programit.people.persistence.PersonService;
 
 @Controller
@@ -18,6 +20,7 @@ public class PersonController {
 
 	@Autowired
 	private PersonService personService;
+	private CategoryService categoryService;
 
 	@RequestMapping("/list") // please listen :-) to the list - request
 	public String list(Model model) { // please inject a Model since that is the
@@ -33,14 +36,14 @@ public class PersonController {
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public @ResponseBody String provideUploadInfo() {
-		return "You can upload some by posting to this url.";
+		return "list";
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public void handleFileUpload(@RequestParam("name") String name,
+	public String handleFileUpload(@RequestParam("name") String name,
 			@RequestParam(required = false, value = "renderPresentationNotes") boolean renderPresentationNotes,
 			@RequestParam("lastName") String lastName,	@RequestParam("address") String address,
-			@RequestParam("phone") String phone, @RequestParam("mail") String mail, 
+			@RequestParam("phone") String phone, @RequestParam("mail") String mail, @RequestParam("chapter") String chapter,@RequestParam("chapname") String chapname,
 			HttpServletResponse response) {
 
 		Person person = new Person();
@@ -49,8 +52,14 @@ public class PersonController {
 		person.setAddress(address);
 		person.setPhone(phone);
 		person.setMail(mail);
+		Category category = new Category();
+		category.setChapter(chapter);
+		category.setName(chapname);
+		
 
 		this.personService.save(person);
+		this.personService.save2(category);
+		return "list";
 
 	}
 }

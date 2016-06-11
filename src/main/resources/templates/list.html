@@ -9,6 +9,7 @@
 <link rel="shortcut icon" th:href="@{images/recordworld.ico}" />
 <title>The people in our Exam app for now</title>
 </head>
+
 <body th:inline="text">
 
 	<div class="database_table" align="center">
@@ -25,13 +26,23 @@
 			
 		</option>
 
-		<!-- <p th:each="person : ${people}" th:text="'First name: '+ ${person.firstName}+ '; Last name: ' + ${person.lastName}+ ' '+
-		+ '; Adres: ' +${person.address} + '; Phone: '+ ${person.phone}+ '; Email: ' + ${person.mail}" />
-		
-		<p th:each="person : ${people}" th:text="${person.address}" />
-		<p th:each="person : ${people}" th:text="${person.phone}" />
-		-->
+
 	</div>
+	
+	<div class="database_table" align="center">
+		<h2 class="overviewTitle">Category's in exam app:</h2>
+
+		<option th:each="category : ${categories}">
+			<p>
+				Naam van de categorie: [[${category.name}]];
+				Hoofdstuk waar het te vinden is: [[${category.chapter}]];
+			</p>
+			
+		</option>
+
+		
+	</div>
+	
 
 </body>
 </html>
