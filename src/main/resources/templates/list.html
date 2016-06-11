@@ -21,6 +21,7 @@
 		<th>Adres</th>
 		<th>Telefoonnummer</th>
 		<th>Email</th>
+		<th>Aangevinkt</th>
 		</tr>
 		<tr th:each="person : ${people}">
 				<td>[[${person.firstName}]]</td>
@@ -28,6 +29,7 @@
 				<td>[[${person.address}]]</td>
 				<td>[[${person.phone}]]</td>
 				<td>[[${person.mail}]]</td>
+				<td>[[${person.checked}]]</td>
 			
 		</tr>
 		</table>

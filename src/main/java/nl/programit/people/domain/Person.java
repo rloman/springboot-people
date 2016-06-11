@@ -24,6 +24,15 @@ public class Person implements Serializable {
 	private String address;
 	private String phone;
 	private String mail;
+	private boolean checked;
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
 
 	public String getMail() {
 		return mail;

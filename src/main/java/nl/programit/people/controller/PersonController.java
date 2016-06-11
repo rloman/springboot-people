@@ -46,11 +46,12 @@ public class PersonController {
 	public String handleFileUpload(@RequestParam("name") String name,
 			@RequestParam(required = false, value = "renderPresentationNotes") boolean renderPresentationNotes,
 			@RequestParam("lastName") String lastName,	@RequestParam("address") String address,
-			@RequestParam("phone") String phone, @RequestParam("mail") String mail, @RequestParam("chapter") String chapter,@RequestParam("chapname") String chapname,
+			@RequestParam("phone") String phone,@RequestParam("checked") boolean check, @RequestParam("mail") String mail, @RequestParam("chapter") String chapter,@RequestParam("chapname") String chapname,
 			HttpServletResponse response) {
 
 		Person person = new Person();
 		person.setFirstName(name);
+		person.setChecked(check);
 		String newLastName= lastName.replaceAll(Character.toString((char)10),"\n\r");
 		newLastName= newLastName.replaceAll(Character.toString((char)9),"\t");
 	
