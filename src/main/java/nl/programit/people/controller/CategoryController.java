@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import nl.programit.people.domain.Category;
 import nl.programit.people.persistence.CategoryService;
 
+//rik
 @Controller
 public class CategoryController {
 	@Autowired
