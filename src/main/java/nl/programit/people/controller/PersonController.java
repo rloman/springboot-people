@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import nl.programit.people.domain.Fiets;
 import nl.programit.people.domain.Person;
+import nl.programit.people.persistence.FietsService;
 import nl.programit.people.persistence.PersonService;
 
 @Controller
@@ -18,6 +20,9 @@ public class PersonController {
 
 	@Autowired
 	private PersonService personService;
+
+	@Autowired
+	private FietsService fietsService;
 
 	@RequestMapping("/list") // please listen :-) to the list - request
 	public String list(Model model) { // please inject a Model since that is the
@@ -46,6 +51,16 @@ public class PersonController {
 		person.setLastName(lastName);
 
 		this.personService.save(person);
+
+		Fiets fiets = new Fiets();
+		fiets.setMerk("Batavus");
+		this.fietsService.save(fiets);
+
+		person.getFietsen().add(fiets);
+		fiets.getEigenaren().add(person);
+
+		this.personService.save(person);
+		this.fietsService.save(fiets);
 
 	}
 }

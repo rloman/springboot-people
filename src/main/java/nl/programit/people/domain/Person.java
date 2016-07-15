@@ -1,11 +1,15 @@
 package nl.programit.people.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Person implements Serializable {
@@ -19,6 +23,9 @@ public class Person implements Serializable {
 
 	private String firstName;
 	private String lastName;
+	
+	@ManyToMany(mappedBy="eigenaren", cascade=CascadeType.ALL)
+	private List<Fiets> fietsen = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -48,6 +55,15 @@ public class Person implements Serializable {
 	public String toString() {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
+
+	public List<Fiets> getFietsen() {
+		return fietsen;
+	}
+
+	public void setFietsen(List<Fiets> fietsen) {
+		this.fietsen = fietsen;
+	}
+	
 
 	// feature
 	// Person should print nicer
