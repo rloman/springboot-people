@@ -56,8 +56,8 @@ public class PersonController {
 		fiets.setMerk("Batavus");
 		this.fietsService.save(fiets);
 
-		person.getFietsen().add(fiets);
-		fiets.getEigenaren().add(person);
+		person.addFiets(fiets);
+		fiets.addEigenaar(person);
 
 		this.personService.save(person);
 		this.fietsService.save(fiets);

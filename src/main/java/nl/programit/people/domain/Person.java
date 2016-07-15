@@ -55,15 +55,11 @@ public class Person implements Serializable {
 	public String toString() {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
-
-	public List<Fiets> getFietsen() {
-		return fietsen;
-	}
-
-	public void setFietsen(List<Fiets> fietsen) {
-		this.fietsen = fietsen;
-	}
 	
+	public void addFiets(Fiets f) {
+		this.fietsen.add(f);
+	}
+
 
 	// feature
 	// Person should print nicer

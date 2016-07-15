@@ -38,12 +38,9 @@ public class Fiets {
 		this.merk = merk;
 	}
 
-	public List<Person> getEigenaren() {
-		return eigenaren;
+	
+	public void addEigenaar(Person p) {
+		this.eigenaren.add(p);
 	}
-
-	public void setEigenaren(List<Person> eigenaren) {
-		this.eigenaren = eigenaren;
-	}
-
+	
 }
