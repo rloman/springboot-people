@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import nl.programit.people.domain.Person;
+import nl.programit.people.domain.Phone;
 
 @Service
 @Transactional
@@ -21,4 +22,5 @@ public class PersonService {
 		Iterable<Person> result = this.personRepository.findAll();
 		return result;
 	}
+
 }

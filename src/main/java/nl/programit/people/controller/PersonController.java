@@ -1,3 +1,4 @@
+/*
 package nl.programit.people.controller;
 
 import javax.servlet.http.HttpServletResponse;
@@ -33,4 +34,7 @@ public class PersonController {
 	
 	       this.personService.save(person);
        }
+
 }
+*/
+
