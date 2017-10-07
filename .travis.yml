@@ -1,1 +1,4 @@
 language: java
+
+notifications:
+  slack: carpago:nami4CHsNg7iUdRidup7hsub
